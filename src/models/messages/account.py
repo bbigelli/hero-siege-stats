@@ -84,11 +84,12 @@ class AccountMessage(BaseMessage):
     blood_pact: int
 
     def get_current_season_mode(self):
-        if self.season != CURRENT_SEASON:
-            return "GNH" if self.hardcore == 1 else "GNS"
-        else:
+        if self.season == CURRENT_SEASON:
             return "GSH" if self.hardcore == 1 else "GSS"
-        return "GBP"
+        if self.blood_pact != 0 and self.season == 0:
+            return "GBP"
+        else:
+            return "GNH" if self.hardcore == 1 else "GNS"
     
     def __init__(self, msg_dict: dict):
         super().__init__(msg_dict)
