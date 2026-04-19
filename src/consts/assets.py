@@ -53,7 +53,7 @@ IcBuff_25: str = "sz_buff_ancient_pack_2.png"
 
 # Icons Satanic Zone DeBuffs
 IcDebuffDefault: str = "sz_debuff_default.png"
-IcDebuff_1: str = "sz_debuff_dusk_shroud.png"
+IcDebuff_1: str = "sz_debuff_dusk's_shroud.png"
 IcDebuff_2: str = "sz_debuff_elemental_erosion.png"
 IcDebuff_3: str = "sz_debuff_sundered_armor.png"
 IcDebuff_4: str = "sz_debuff_vitality_drain.png"

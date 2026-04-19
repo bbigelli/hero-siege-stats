@@ -1,6 +1,6 @@
 # src/consts/satanic_debuffs.py
 satanic_debuffs = {
-    "Dusk's Shroud": "Light Radius decreased by -20%",
+    "Dusk's Shroud": "Light Radius decreased by -20",
     "Elemental Erosion": "All Resistances decreased by -75%",
     "Sundered Armor": "Damage Taken increased by -25%",
     "Vitality Drain": "Life decreased by -25%",

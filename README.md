@@ -1,84 +1,58 @@
-![Release Version](https://img.shields.io/github/v/release/guilhermefaga/hero-siege-stats) ![Total Downloads](https://img.shields.io/github/downloads/guilhermefaga/hero-siege-stats/total.svg)
+### 📊 Sobre o Projeto
+Hero Siege Stats é uma aplicação desktop para Windows que monitora e exibe estatísticas em tempo real do jogo Hero Siege. Através da captura de pacotes de rede, o aplicativo mostra informações como gold, experiência, duração da sessão e efeitos da Zona Satânica sem a necessidade de modificar o jogo.
 
-# Hero Siege Stats
+### ✨ Funcionalidades
+ 🪙 Monitoramento de Gold - Total de gold, gold ganho na sessão e gold por hora
 
-This is a simple tool that tracks the requests made between the game and the server and displays them in a nice way.
+⭐ Monitoramento de XP - Experiência total, XP ganho na sessão e XP por hora
 
-### App preview
+⏱️ Duração da Sessão - Tempo decorrido desde o início do monitoramento
 
-![App preview](/assets/readme/preview.png)
+📧 Status do Mail - Indica se há novos e-mails no jogo
 
-## Features
+🌙 Zona Satânica - Exibe buffs e debuffs ativos da Zona Satânica com ícones e descrições detalhadas
 
-- Session time and session reset button
-- Mailbox notification
-- Gold earned and gold per hour
-- XP earned and XP per hour
-- Items picked up (Angelic, Heroic and Satanic) (Blue number means Magic Find drops)
-- Shows Satanic Zone with Buffs(Hover over Buff icons for tooltip with Buffdescriptions)
-- Adapt to game server IP changes
+🔄 Reset de Estatísticas - Botão para reiniciar todas as estatísticas a qualquer momento
 
-## Limitations
+🖼️ Ícones Personalizados - Interface temática com ícones do jogo
 
-- Gold picked up from mailbox is counted as gold earned
-- XP earned can be wrong when leveling up (would need the max XP for each level)
-- Items moved between inventories are counted as picked up
-- Items dropped by players are counted as picked up
+### 🖥️ Requisitos do Sistema
+Sistema Operacional: Windows 10 ou superior
 
-## Is this allowed?
+Jogo: Hero Siege (qualquer versão recente)
 
-![image](https://github.com/GuilhermeFaga/hero-siege-stats/assets/32572430/56a116cb-66b1-45de-afa9-3d3dc7a2ea6c)
+Python: 3.11 ou superior (para executar a partir do código)
 
+### 🚀 Como Usar
+Executável (Recomendado)
+Baixe o arquivo .exe da página de releases
 
-## How to use
+Execute o arquivo (não precisa de instalação)
 
-1. On Windows make sure that WinPcap is installed in your system. [Npcap downloads page](https://npcap.com/#download) | [Direct link](https://npcap.com/dist/npcap-1.77.exe).
+Inicie o Hero Siege
 
-2. Download the latest release from the [releases page](https://github.com/GuilhermeFaga/hero-siege-stats/releases) and run it.
+Acompanhe suas estatísticas em tempo real
 
-3. Start the game and play a bit. Some stats only update after changing maps.
+### ⚠️ Observações
+O aplicativo não modifica o jogo nem envia dados ao servidor
 
-## Roadmap
+Apenas lê os pacotes de rede que o jogo já envia naturalmente
 
-- [X] Support for all login regions
-- [x] Support for all game regions
-- [X] Session reset button
-- [X] Items drop counter
-  - [X] Angelic items
-  - [X] Unholy items
-  - [X] Heroic items
-  - [X] Satanic items
-- [ ] XP percentage
-- [ ] Fortune mission counter
-- [ ] Mercenary alive status
+RECOMENDADO USAR EM SEGUNDO MONITOR!
 
-# Instructions for developers
+### A partir do código fonte
 
-## Running from source
+# Clone o repositório
+git clone https://github.com/bbigelli/hero-siege-stats.git
 
-### Requirements
+# Entre no diretório
+cd hero-siege-stats
 
-- [Python 3.11](https://www.python.org/downloads/release/python-3116/)
-- [Poetry](https://python-poetry.org/)
+# Instale as dependências com Poetry
+poetry install --no-root
 
-### Steps
-
-1. Clone the repository
-2. Run `poetry install`
-3. Run `poetry run python hero-siege-stats.py`
-
-## Building from source
-
-### Requirements
-
-Same as running from source.
-
-### Steps
-
-1. Clone the repository
-2. Run `poetry install`
-3. Run `poetry run py build.py`
-4. The executable will be in the `dist` folder
+# Execute o programa
+poetry run python hero-siege-stats.py
 
 ## Contributors
 
