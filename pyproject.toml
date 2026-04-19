@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "hero-siege-stats"
-version = "0.1.0"
-description = ""
-authors = ["Guilherme Faga <firiguito@gmail.com>"]
+version = "0.2.0"
+description = "Hero Siege Stats - Monitor de estatísticas em tempo real para Hero Siege"
+authors = ["Bruno Bigelli <bbigelli@hotmail.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.12"

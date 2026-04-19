@@ -6,7 +6,6 @@ from src.models.stats.account import Account
 from src.models.stats.gold import GoldStats
 from src.models.stats.xp import XPStats
 from src.models.stats.fortune import FortuneStats
-from src.models.stats.added_items import AddedItemsStats
 from src.models.stats.satanic_zone import SatanicZoneStats
 
 from src.models.events.base import BaseEvent
@@ -14,9 +13,7 @@ from src.models.events.gold import GoldEvent
 from src.models.events.xp import XPEvent
 from src.models.events.account import AccountEvent
 from src.models.events.mail import MailEvent
-from src.models.events.added_item import AddedItemEvent
 from src.models.events.satanic_zone import SatanicZoneEvent
-from src.consts.sets import ItemsRarity
 
 
 class GameStats:
@@ -25,7 +22,6 @@ class GameStats:
     gold = GoldStats()
     xp = XPStats()
     fortune = FortuneStats()
-    added_items = AddedItemsStats()
     satanic_zone = SatanicZoneStats()
     season_mode = None
     logger = logging.getLogger(LOGGING_NAME)
@@ -39,13 +35,8 @@ class GameStats:
         if isinstance(event, AccountEvent):
             self.xp.update(total_xp=event.value.experience)
             self.season_mode = event.value.get_current_season_mode()
-            # TODO - Find the correct fortune_enemies_killed value
-            # TODO - Fortune Message changed and logic is not working anymore rightnow.
-            #self.fortune.update(total_fortune=event.value.fortune_enemies)
         if isinstance(event, MailEvent):
             self.session.update(has_mail=bool(event.value))
-        if isinstance(event, AddedItemEvent):
-            self.added_items.update(added_item_object=event.value)
         if isinstance(event, SatanicZoneEvent):
             self.satanic_zone.update(event.value)
 
@@ -57,7 +48,6 @@ class GameStats:
         self.account = Account()
         self.gold = GoldStats()
         self.xp = XPStats()
-        self.added_items = AddedItemsStats()
         self.satanic_zone = SatanicZoneStats()
         self.season_mode = None
         
@@ -74,12 +64,6 @@ class GameStats:
                 self.xp.total_xp_earned
             )
         )
-        _items_per_hour = {}
-        for rarity_id in ItemsRarity:
-            _items_per_hour[ItemsRarity[rarity_id]] = self.session.calculate_value_per_hour(
-                self.added_items.added_items[ItemsRarity[rarity_id]]['total']
-            )
-        self.added_items.update(items_per_hour=_items_per_hour)
 
     def get_stats(self):
         self.update_hourly_stats()
@@ -87,6 +71,5 @@ class GameStats:
             session=self.session,
             gold_stats=self.gold,
             xp_stats=self.xp,
-            added_items=self.added_items,
-            satanic_zone = self.satanic_zone
+            satanic_zone=self.satanic_zone
         )

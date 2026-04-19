@@ -49,11 +49,36 @@ IcBuff_21: str = "sz_buff_aftermath.png"
 IcBuff_22: str = "sz_buff_deep_cuts.png"
 IcBuff_23: str = "sz_buff_ancient_pack.png"
 IcBuff_24: str = "sz_buff_ancient_pack_2.png"
-IcBuff_25: str = "sz_buff_ancient_pack_2.png" #not sure if it exists havent seen it and dont know if it has a different icon like the first and second level of the acient pack buff
+IcBuff_25: str = "sz_buff_ancient_pack_2.png"
 
-# retrieve buff icon path object helper function
-def get_buff_icon(name):
-    return globals()[name]
+# Icons Satanic Zone DeBuffs
+IcDebuffDefault: str = "sz_debuff_default.png"
+IcDebuff_1: str = "sz_debuff_dusk_shroud.png"
+IcDebuff_2: str = "sz_debuff_elemental_erosion.png"
+IcDebuff_3: str = "sz_debuff_sundered_armor.png"
+IcDebuff_4: str = "sz_debuff_vitality_drain.png"
+IcDebuff_5: str = "sz_debuff_essence_drain.png"
+IcDebuff_6: str = "sz_debuff_abyssal_gloom.png"
+IcDebuff_7: str = "sz_debuff_skill_debilitation.png"
+IcDebuff_8: str = "sz_debuff_weakening_essence.png"
+IcDebuff_9: str = "sz_debuff_lifeflow_starvation.png"
+IcDebuff_10: str = "sz_debuff_sanguine_impairment.png"
+IcDebuff_11: str = "sz_debuff_arcane_impairment.png"
+IcDebuff_12: str = "sz_debuff_consumed_time.png"
+IcDebuff_13: str = "sz_debuff_absolute_limbo.png"
+IcDebuff_14: str = "sz_debuff_boulder_fall.png"
+IcDebuff_15: str = "sz_debuff_lingering_evil.png"
+IcDebuff_16: str = "sz_debuff_fatal_wounds.png"
+IcDebuff_17: str = "sz_debuff_bloated_veins.png"
+IcDebuff_18: str = "sz_debuff_abnormal_dwelling.png"
+IcDebuff_19: str = "sz_debuff_colossal_bloating.png"
+IcDebuff_20: str = "sz_debuff_necrosis.png"
+IcDebuff_21: str = "sz_debuff_venomous_presence.png"
+IcDebuff_22: str = "sz_debuff_flaming_agony.png"
+IcDebuff_23: str = "sz_debuff_unholy_agility.png"
+IcDebuff_24: str = "sz_debuff_broken_armor.png"
+IcDebuff_25: str = "sz_debuff_hemorrhage.png"
+IcDebuff_26: str = "sz_debuff_crippling_slow.png"
 
 # Font Colors
 FcDefault: str = "<font color=\"#C3AF75\">"
@@ -61,5 +86,3 @@ FcAngelic: str = "<font color=\"#F6F794\">"
 FcHeroic: str = "<font color=\"#00FFAE\">"
 FcSatanic: str = "<font color=\"#CA1717\">"
 FcBlue: str = "<font color=\"#5050AE\">"
-
-

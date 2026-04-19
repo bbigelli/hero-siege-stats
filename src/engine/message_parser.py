@@ -12,14 +12,12 @@ from src.models.events.gold import GoldEvent
 from src.models.events.xp import XPEvent
 from src.models.events.account import AccountEvent
 from src.models.events.mail import MailEvent
-from src.models.events.added_item import AddedItemEvent
 from src.models.events.satanic_zone import SatanicZoneEvent
 
 from src.models.messages.gold import GoldMessage
 from src.models.messages.xp import XPMessage
 from src.models.messages.account import AccountMessage
 from src.models.messages.mail import MailMessage
-from src.models.messages.added_item import AddedItemMessage
 from src.models.messages.satanic_zone import SatanicZoneMessage
 
 from src.consts import events as consts
@@ -78,7 +76,6 @@ class MessageParser:
                         parsed = parse_qs(truncated_message)
                         # Convert list values to single values
                         result = {k: v[0] for k, v in parsed.items()}
-                    # logger.debug(f"MessageParser.capture: {result} from {src} to {dst}")
                     return result
                 except Exception as e:
                     logger.debug(f"Message parsing failed: {e}")
@@ -118,8 +115,6 @@ class MessageParser:
                         events.append(AccountEvent(AccountMessage(msg_dict)))
                     if event_name == consts.EvNameUpdateMail:
                         events.append(MailEvent(MailMessage(msg_dict)))
-                    if event_name == consts.EvNameItemAdded:
-                        events.append(AddedItemEvent(AddedItemMessage(msg_dict)))
                     if event_name == consts.EvNameUpdateSatanicZone:
                         events.append(SatanicZoneEvent(SatanicZoneMessage(msg_dict)))
                 except Exception as e:
@@ -134,10 +129,8 @@ class MessageParser:
     def identify_event(msg_dict: dict):
         logger = logging.getLogger(LOGGING_NAME)
         try:
-            # Skip non-dictionary messages (commonly from item list packets) to prevent type errors
-            # Check if msg_dict is a dictionary type
+            # Skip non-dictionary messages
             if not isinstance(msg_dict, dict):
-                # logger.warning(f"msg_dict is not a dictionary, got {type(msg_dict)}, {msg_dict}")
                 return None
             if "steam" in msg_dict:
                 return None
@@ -148,8 +141,6 @@ class MessageParser:
                 return consts.EvNameUpdateXP
             elif "mail" in msg_dict.get("message", ""):
                 return consts.EvNameUpdateMail
-            elif "addedItemObject" in msg_dict:
-                return consts.EvNameItemAdded
             elif "satanicZoneName" in msg_dict:
                 return consts.EvNameUpdateSatanicZone
             elif "experience" in msg_dict:

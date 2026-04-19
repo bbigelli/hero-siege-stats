@@ -7,7 +7,7 @@ from src.consts.logger import LOGGING_NAME
 from ..version import version
 
 
-latest_url = "https://github.com/GuilhermeFaga/hero-siege-stats/releases/latest"
+latest_url = "https://github.com/bbigelli/hero-siege-stats/releases/latest"
 
 
 def get_version():

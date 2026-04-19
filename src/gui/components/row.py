@@ -1,16 +1,23 @@
-from PySide6.QtWidgets import QBoxLayout
-from PySide6.QtWidgets import QWidget
-
+from PySide6.QtWidgets import QBoxLayout, QWidget
+from PySide6.QtCore import Qt
 
 class Row(QWidget):
     def __init__(self, widgets):
-        QWidget.__init__(self)
+        super().__init__()
 
-        layout = QBoxLayout(QBoxLayout.Direction.LeftToRight, self)
-        layout.setSizeConstraint(QBoxLayout.SizeConstraint.SetFixedSize)
+        self.setStyleSheet("""
+            QWidget {
+                background-color: transparent;
+            }
+        """)
 
-        layout.setSpacing(4)
-        layout.setContentsMargins(0, 0, 0, 0)
+        layout = QBoxLayout(QBoxLayout.LeftToRight, self)
+        
+        layout.setSpacing(6)
+        layout.setContentsMargins(2, 2, 2, 2)
 
         for widget in widgets:
-            self.layout().addWidget(widget)
+            layout.addWidget(widget)
+
+        # Empurra tudo para a esquerda
+        layout.addStretch()
