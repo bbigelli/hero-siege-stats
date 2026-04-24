@@ -1,1 +1,1 @@
-version = "2026.04.19"
+version = "HsStatsV2.0.0"
