@@ -75,7 +75,7 @@ def run():
     if latest_version and current_version != latest_version:
         VersionMessages.outdated_version(widget)
     from src.engine.sniffer_manager import sniffer_manager
-    if isinstance(sniffer_manager.sniffer, ConnectionError):
+    if sniffer_manager is not None and isinstance(sniffer_manager.sniffer, ConnectionError):
         ErrorMessages.get_message(widget, sniffer_manager.sniffer)
         logger.log(logging.ERROR,"Connection error")
         logger.log(logging.INFO,sniffer_manager.sniffer)
